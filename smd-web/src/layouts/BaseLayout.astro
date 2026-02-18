@@ -25,7 +25,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).toString()
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#1a1a2e" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -58,11 +58,11 @@ gtag('config', '${SITE.analyticsTagId}');`}
     <a href="#main-content" class="skip-link">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="/" class="brand">SMDurgan<span>, LLC</span></a>
+        <a href="/" class="brand">SM<span>Durgan</span></a>
         <nav aria-label="Main">
           <ul class="nav-list">
             {
-              NAV_ITEMS.map((item) => (
+              NAV_ITEMS.filter((item) => item.href !== '/').map((item) => (
                 <li>
                   <a href={item.href}>{item.label}</a>
                 </li>
@@ -77,13 +77,17 @@ gtag('config', '${SITE.analyticsTagId}');`}
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© {new Date().getFullYear()} SMDurgan, LLC</p>
-        <p><a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a></p>
+        <p>&copy; {new Date().getFullYear()} SMDurgan, LLC</p>
+        <nav>
+          <a href="/legal/">Legal</a>
+          &nbsp;&middot;&nbsp;
+          <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
+        </nav>
       </div>
     </footer>
   </body>
 </html>
 
-<style>
+<style is:global>
   @import '../styles/global.css';
 </style>

@@ -1,33 +1,81 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { ventures } from '../data/ventures'
+
+const live = ventures.filter((v) => v.url && v.tier === 1)
+
+function stageLabel(stage: string): string {
+  const labels: Record<string, string> = {
+    beta: 'Beta',
+    'market-test': 'Market Test',
+    design: 'Design',
+  }
+  return labels[stage] ?? stage
+}
 ---
 
 <BaseLayout
-  title="Portfolio Legal Entity"
-  description="SMDurgan, LLC is the legal entity behind the venture portfolio."
+  title="Venture Studio"
+  description="SMDurgan is a venture studio building focused software products with AI-agent development teams."
 >
-  <h1 class="page-title">SMDurgan, LLC</h1>
-  <p>
-    SMDurgan, LLC is the legal entity for a focused software venture portfolio.
-    Venture Crane operates as the product factory inside this structure.
-  </p>
-
-  <section class="section">
-    <h2>Portfolio Snapshot</h2>
-    <div class="card-grid">
-      {
-        ventures.map((venture) => (
-          <article class="card">
-            <p class="badge">{venture.stage}</p>
-            <h3>{venture.name}</h3>
-            <p>{venture.summary}</p>
-            <a href={venture.url} target="_blank" rel="noopener noreferrer">
-              Visit venture
-            </a>
-          </article>
-        ))
-      }
+  <section class="founder-intro">
+    <img
+      class="founder-photo"
+      src="/headshot.jpeg"
+      alt="Scott Durgan"
+      width="120"
+      height="120"
+      loading="eager"
+    />
+    <div class="founder-info">
+      <h1>Scott Durgan</h1>
+      <p class="founder-title">Founder</p>
+      <p>
+        Scott is a product builder who has spent two decades shipping enterprise
+        software - from hands-on engineering through leading product and
+        platform teams at scale. He built and ran teams that delivered SaaS
+        products serving thousands of businesses, learning firsthand what it
+        takes to get software from idea to paying customers.
+      </p>
+      <p>
+        He now runs SMDurgan, a venture studio where small, focused products are
+        built by AI-agent development teams. The studio's internal
+        infrastructure, Venture Crane, is purpose-built tooling that lets AI
+        agents operate as full development teams - planning, building, testing,
+        and shipping production software. The result is a one-person company
+        that builds like a team of ten.
+      </p>
     </div>
+  </section>
+
+  {
+    live.length > 0 && (
+      <section class="section">
+        <h2>Portfolio</h2>
+        <div class="tier-1-grid">
+          {live.map((v) => (
+            <article class="card tier-1">
+              <span class="badge active">{stageLabel(v.stage)}</span>
+              <h3>{v.name}</h3>
+              <p>{v.summary}</p>
+              {v.metric && <p class="card-metric">{v.metric}</p>}
+              <a
+                class="card-link"
+                href={v.url!}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit {v.name} &rarr;
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="cta-section">
+    <p>Interested in working together?</p>
+    <a href="/contact/">Get in touch</a>
   </section>
 </BaseLayout>

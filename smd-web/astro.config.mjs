@@ -17,14 +17,14 @@ export default defineConfig({
     AstroPWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'SMDurgan, LLC',
+        name: 'SMDurgan',
         short_name: 'SMD',
         description:
-          'SMDurgan, LLC - legal entity and venture studio portfolio.',
+          'SMDurgan - venture studio building focused software products.',
         start_url: '/',
         display: 'standalone',
-        background_color: '#0f172a',
-        theme_color: '#0f172a',
+        background_color: '#1a1a2e',
+        theme_color: '#1a1a2e',
         icons: [
           {
             src: '/icon.svg',

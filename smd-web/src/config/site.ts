@@ -1,8 +1,8 @@
 export const SITE = {
-  name: 'SMDurgan, LLC',
-  title: 'SMDurgan, LLC',
+  name: 'SMDurgan',
+  title: 'SMDurgan',
   description:
-    'SMDurgan, LLC is a venture studio legal entity operating a portfolio of focused software ventures.',
+    'SMDurgan is a venture studio building focused software products with AI-agent development teams.',
   url: 'https://smdurgan.com',
   contactEmail: 'hello@smdurgan.com',
   analyticsTagId: 'GT-PJWLK32',
@@ -10,9 +10,5 @@ export const SITE = {
 
 export const NAV_ITEMS = [
   { href: '/', label: 'Home' },
-  { href: '/ventures/', label: 'Ventures' },
-  { href: '/about/', label: 'About' },
-  { href: '/operating-model/', label: 'Operating Model' },
   { href: '/contact/', label: 'Contact' },
-  { href: '/legal/', label: 'Legal' },
 ] as const
