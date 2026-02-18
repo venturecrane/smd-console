@@ -5,30 +5,59 @@ import { SITE } from '../config/site'
 
 <BaseLayout
   title="Legal"
-  description="Legal and privacy information for SMDurgan, LLC."
+  description="Privacy policy and terms of use for smdurgan.com."
 >
   <h1 class="page-title">Legal</h1>
 
   <section class="section card">
-    <h2>Privacy</h2>
+    <h2>Privacy Policy</h2>
     <p>
-      We collect limited personal information submitted through the contact form
-      for direct business communication only. We do not sell personal data.
+      This site collects personal information only through the contact form:
+      your name, email address, and message. This information is used solely to
+      respond to your inquiry and is sent via Resend to hello@smdurgan.com. It
+      is not shared with third parties, sold, or used for marketing.
+    </p>
+    <p>
+      This site uses Google Analytics to understand aggregate traffic patterns
+      (pages visited, visit duration, referral source). Google Analytics uses
+      cookies. You can opt out by using a browser extension or disabling
+      cookies.
+    </p>
+    <p>
+      No other cookies are set by this site. No advertising trackers, no
+      remarketing pixels, no third-party data collection beyond what is
+      described above.
+    </p>
+    <p>
+      To request deletion of any data submitted through the contact form, email
+      <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
     </p>
   </section>
 
   <section class="section card">
-    <h2>Terms</h2>
+    <h2>Terms of Use</h2>
     <p>
-      Site content is provided for informational purposes. Access and use imply
-      acceptance of updates to these terms.
+      This site and its content are provided by SMDurgan, LLC for informational
+      purposes. You may view and reference the content freely. You may not
+      reproduce, redistribute, or misrepresent it as your own.
     </p>
+    <p>
+      Links to external sites (including portfolio venture sites) are provided
+      for convenience. SMDurgan, LLC is not responsible for the content or
+      availability of linked sites.
+    </p>
+    <p>
+      These terms may be updated. Continued use of the site constitutes
+      acceptance of any changes. Material changes will be noted on this page
+      with an updated date.
+    </p>
+    <p>Last updated: February 2026.</p>
   </section>
 
   <section class="section card">
     <h2>Contact</h2>
     <p>
-      Legal and privacy inquiries: <a href={`mailto:${SITE.contactEmail}`}
+      For legal or privacy inquiries: <a href={`mailto:${SITE.contactEmail}`}
         >{SITE.contactEmail}</a
       >
     </p>
