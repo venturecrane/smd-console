@@ -3,18 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout title="Contact" description="Get in touch with SMDurgan.">
-  <h1 class="page-title">Get in touch</h1>
-  <p>Send a message below. Typically responds within one business day.</p>
-
-  <div id="notice-sent" class="notice ok" hidden>Message sent. Thank you.</div>
-  <div id="notice-validation" class="notice err" hidden>
-    Please fill in all fields and try again.
-  </div>
-  <div id="notice-server" class="notice err" hidden>
-    Message delivery failed. Please use the contact form to try again.
-  </div>
-
   <div class="form-card section">
+    <h1 class="form-card-title">Get in touch</h1>
+    <p class="form-card-subtitle">
+      Send a message below. Typically responds within one business day.
+    </p>
+
+    <div id="notice-sent" class="notice ok" hidden>
+      Message sent. Thank you.
+    </div>
+    <div id="notice-validation" class="notice err" hidden>
+      Please fill in all fields and try again.
+    </div>
+    <div id="notice-server" class="notice err" hidden>
+      Message delivery failed. Please use the contact form to try again.
+    </div>
+
     <form id="contact-form">
       <div class="form-field">
         <label for="name">Name</label>

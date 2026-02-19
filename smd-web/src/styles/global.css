@@ -365,17 +365,29 @@ label {
 }
 
 .form-card {
-  background: color-mix(in srgb, var(--smd-surface) 90%, black 10%);
-  border: 1px solid var(--smd-border);
+  background: var(--smd-surface);
   border-radius: 0.5rem;
   padding: 1.5rem;
 }
-
-.form-field {
-  margin-bottom: 1rem;
+@media (min-width: 640px) {
+  .form-card {
+    padding: 2rem;
+  }
 }
 
-.form-field:last-of-type {
+.form-card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.form-card-subtitle {
+  color: var(--smd-text-muted);
+  margin: 0 0 2rem;
+}
+
+.form-field {
   margin-bottom: 1.25rem;
 }
 
