@@ -77,15 +77,20 @@ gtag('config', '${SITE.analyticsTagId}');`}
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>&copy; {new Date().getFullYear()} SMDurgan, LLC</p>
         <nav class="footer-nav">
           <a href="/legal/">Legal</a>
+          <span class="footer-dot" aria-hidden="true">&middot;</span>
           <a
             href="https://venturecrane.com"
             target="_blank"
             rel="noopener noreferrer">Venture Crane</a
           >
+          <span class="footer-dot" aria-hidden="true">&middot;</span>
+          <a href="/contact/">Contact</a>
         </nav>
+        <p>
+          &copy; {new Date().getFullYear()} SMDurgan, LLC. All rights reserved.
+        </p>
       </div>
     </footer>
   </body>

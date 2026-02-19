@@ -59,17 +59,24 @@ a:hover {
 }
 
 .footer-inner {
-  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  flex-wrap: wrap;
 }
 
 .footer-inner p {
+  margin-top: 0.75rem;
   font-size: 0.875rem;
   color: var(--smd-text-muted);
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .footer-nav {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   font-size: 0.875rem;
 }
@@ -80,11 +87,14 @@ a:hover {
 }
 
 .footer-nav a:hover {
-  color: var(--smd-accent-hover);
+  color: var(--smd-text);
 }
 
-.header-inner,
-.footer-inner {
+.footer-dot {
+  color: var(--smd-text-muted);
+}
+
+.header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -113,7 +123,15 @@ a:hover {
   flex-wrap: wrap;
 }
 
-.nav-list a,
+.nav-list a {
+  color: var(--smd-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-list a:hover {
+  color: var(--smd-text);
+}
 .footer-nav a {
   text-decoration: none;
   transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -251,48 +269,66 @@ a:hover {
 
 .cta-section a {
   display: inline-block;
-  background: var(--smd-accent);
-  color: var(--smd-text-inverse);
+  background: color-mix(in srgb, var(--smd-accent) 10%, transparent);
+  color: var(--smd-accent);
   text-decoration: none;
-  padding: 0.65rem 1.5rem;
-  border-radius: 0.4rem;
-  font-weight: 600;
+  border: 1px solid var(--smd-accent);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .cta-section a:hover {
-  background: var(--smd-accent-hover);
-  color: var(--smd-text-inverse);
+  background: color-mix(in srgb, var(--smd-accent) 20%, transparent);
+  color: var(--smd-accent);
 }
 
 input,
 textarea {
   width: 100%;
-  background: var(--smd-surface-raised);
+  background: var(--smd-chrome);
   border: 1px solid var(--smd-border);
   color: var(--smd-text);
-  border-radius: 0.4rem;
-  padding: 0.65rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
   font-size: 1rem;
   font-family: inherit;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(in srgb, var(--smd-text-muted) 50%, transparent);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--smd-accent);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--smd-accent);
+}
+
 button {
-  background: var(--smd-accent);
-  color: var(--smd-text-inverse);
-  border: none;
-  border-radius: 0.4rem;
-  padding: 0.65rem 1rem;
-  font-weight: 600;
+  background: color-mix(in srgb, var(--smd-accent) 10%, transparent);
+  color: var(--smd-accent);
+  border: 1px solid var(--smd-accent);
+  border-radius: 0.25rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
 }
 
 button:hover {
-  background: var(--smd-accent-hover);
+  background: color-mix(in srgb, var(--smd-accent) 20%, transparent);
 }
 
 label {
   display: block;
-  margin: 0.75rem 0 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--smd-text);
+  margin: 0 0 0.25rem;
 }
 
 .skip-link {
@@ -310,19 +346,37 @@ label {
 }
 
 .notice {
-  border-radius: 0.4rem;
-  padding: 0.75rem;
-  margin: 1rem 0;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  font-size: 0.875rem;
 }
 
 .notice.ok {
-  border: 1px solid #3d8f6f;
-  background: #1a3d2e;
+  border: 1px solid color-mix(in srgb, var(--smd-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--smd-accent) 10%, transparent);
+  color: var(--smd-accent);
 }
 
 .notice.err {
-  border: 1px solid #94515a;
-  background: #42242a;
+  border: 1px solid color-mix(in srgb, #f87171 30%, transparent);
+  background: color-mix(in srgb, #f87171 10%, transparent);
+  color: #f87171;
+}
+
+.form-card {
+  background: color-mix(in srgb, var(--smd-surface) 90%, black 10%);
+  border: 1px solid var(--smd-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field:last-of-type {
+  margin-bottom: 1.25rem;
 }
 
 @media (max-width: 600px) {
