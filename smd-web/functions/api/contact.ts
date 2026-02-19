@@ -12,8 +12,8 @@ interface ContactPayload {
 }
 
 const ALLOWED_ORIGINS = ['https://smdurgan.com', 'https://www.smdurgan.com']
-const TO_EMAIL = 'smdurgan@venturecrane.com'
-const FROM_EMAIL = 'SMDurgan, LLC <contact@venturecrane.com>'
+const TO_EMAIL = 'smdurgan@smdurgan.com'
+const FROM_EMAIL = 'SMDurgan, LLC <contact@smdurgan.com>'
 const CONTROL_CHAR_RE = /[\r\n\0]/
 
 function hasControlChars(value: string): boolean {
