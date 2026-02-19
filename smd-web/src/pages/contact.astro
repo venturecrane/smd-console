@@ -3,20 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout title="Contact" description="Get in touch with SMDurgan.">
-  <div class="form-card section">
-    <h1 class="form-card-title">Get in touch</h1>
+  <div class="form-card">
+    <h1 class="form-card-title">Get in Touch</h1>
     <p class="form-card-subtitle">
       Send a message below. Typically responds within one business day.
     </p>
 
     <div id="notice-sent" class="notice ok" hidden>
-      Message sent. Thank you.
+      Message sent. I'll get back to you soon.
     </div>
     <div id="notice-validation" class="notice err" hidden>
       Please fill in all fields and try again.
     </div>
     <div id="notice-server" class="notice err" hidden>
-      Message delivery failed. Please use the contact form to try again.
+      Something went wrong. Please email <a href="mailto:smdurgan@smdurgan.com"
+        >smdurgan@smdurgan.com</a
+      > directly.
     </div>
 
     <form id="contact-form">
@@ -51,7 +53,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           placeholder="How can we help?"
           required
           maxlength="5000"
-          rows="7"></textarea>
+          rows="6"></textarea>
       </div>
 
       <input
@@ -63,7 +65,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         aria-hidden="true"
       />
 
-      <button type="submit">Send message</button>
+      <button type="submit">Send Message</button>
     </form>
   </div>
 
@@ -112,7 +114,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           })
           .finally(function () {
             btn.disabled = false
-            btn.textContent = 'Send message'
+            btn.textContent = 'Send Message'
           })
       })
     })()
