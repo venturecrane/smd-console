@@ -62,16 +62,33 @@ jobs:
     permissions:
       contents: read
       deployments: write
+    defaults:
+      run:
+        working-directory: smd-web
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - uses: actions/download-artifact@v4
         with:
           name: smd-dist
           path: smd-web/dist/
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: smd-web
-          command: pages deploy dist/ --project-name=smd-web
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          # Cloudflare Pages API rejects commit messages containing non-ASCII
+          # characters with "Invalid commit message, it must be a valid UTF-8
+          # string. [code: 8000111]" - the error is misleading; the strings
+          # ARE valid UTF-8, but the API silently requires printable ASCII.
+          # Strip to printable ASCII + tab/LF/CR before passing to wrangler.
+          # We invoke wrangler directly (instead of cloudflare/wrangler-action)
+          # because that action's `command:` input is whitespace-tokenized and
+          # cannot pass a multi-word --commit-message argument safely.
+          # Mirrors venturecrane/vc-web#88.
+          MESSAGE=$(git log -1 --pretty=%B | LC_ALL=C tr -cd '\11\12\15\40-\176')
+          npx --yes wrangler@3 pages deploy dist/ \
+            --project-name=smd-web \
+            --commit-message="$MESSAGE"
