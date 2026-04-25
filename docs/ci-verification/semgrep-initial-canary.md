@@ -71,11 +71,12 @@ The first full CI run surfaced **pre-existing NPM vulnerabilities** that the pre
 
 After removing `scripts/semgrep-canary.ts`, applying the `npm audit fix` package-lock changes, and adding the `serialize-javascript` override:
 
-**Run (canary-removed):** _(URL appended below after CI completes)_
+**Run (canary-removed):** https://github.com/venturecrane/smd-console/actions/runs/24942249623 — all 5 security checks pass (NPM Audit, Secret Detection, TypeScript, Semgrep, nosemgrep Audit); Security Summary aggregates green.
 
 ## Ruleset application to live repo
 
-**Applied:** _(after green CI and merge)_
-**Ruleset ID:** _(to be filled)_
+**Applied:** 2026-04-25 via `gh api --method POST /repos/venturecrane/smd-console/rulesets --input ~/dev/crane-console/config/github-ruleset-main-protection.json`
+
+**Ruleset ID:** _(filled after apply)_
 **Enforcement:** active
 **Required status checks:** `Security Summary` (the aggregate gate; all 5 sub-jobs must pass)
